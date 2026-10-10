@@ -1,0 +1,101 @@
+{
+  "hero-mood-a": {
+    "task_id": "0bd1dfd7-af96-454a-9f8c-3885d6dde223",
+    "source": "https://cdn-magnific.freepik.com/mystic_v1_upscale_0bd1dfd7-af96-454a-9f8c-3885d6dde223_0.png?token=exp=1791634990~hmac=1c036662a21edb3c4843c9e1432059d50c4869c0040a27adffa3d94376646998&size=stable",
+    "size": [
+      1920,
+      1072
+    ],
+    "prompt": "Morning sunlight streaming through sheer white linen curtains onto a cream wall, soft leaf shadows, a ceramic cup of warm herbal tea and a small green plant on a light wooden side table in the foreground, peaceful recovery mood"
+  },
+  "hero-mood-b": {
+    "task_id": "2a32e47b-e158-4ec5-bca6-180a6aa1ef8d",
+    "source": "https://cdn-magnific.freepik.com/mystic_v1_upscale_2a32e47b-e158-4ec5-bca6-180a6aa1ef8d_0.png?token=exp=1791634995~hmac=bb7227255fa2c6fa44ce2bc980e3ea3c8bea59d9a493adf41400f0c366130300&size=stable",
+    "size": [
+      1920,
+      1072
+    ],
+    "prompt": "Close-up of neatly folded white cotton towels and a soft knitted blanket on a light wooden shelf, gentle window light from the side, a sprig of green eucalyptus, clean and restful atmosphere"
+  },
+  "who-accident": {
+    "task_id": "c076be9c-6680-41d5-8bba-abaa1d16f790",
+    "source": "https://cdn-magnific.freepik.com/mystic_v1_generate_c076be9c-6680-41d5-8bba-abaa1d16f790.png?token=exp=1791634977~hmac=571fb2c7d30c2459ef0d03de70245a2147ad2f6c77c57911874876226a32cc8f&size=stable",
+    "size": [
+      900,
+      672
+    ],
+    "prompt": "A person sitting on a bench gently holding the back of their neck, a small parked car softly in the background, a calm tree, conveying recovery after a minor traffic accident, gentle and reassuring"
+  },
+  "who-family": {
+    "task_id": "559b209a-09b6-4c7e-8034-de85b4f47c35",
+    "source": "https://cdn-magnific.freepik.com/mystic_v1_generate_559b209a-09b6-4c7e-8034-de85b4f47c35.png?token=exp=1791634983~hmac=9d8757e3a9d5214fd072cbf63eefec564c1f9b9dcac3bddcd640feae93b94673&size=stable",
+    "size": [
+      900,
+      672
+    ],
+    "prompt": "A parent and a young child sitting together on a bed reading a picture book in a cozy warm room, window with soft light, family staying together"
+  },
+  "who-chronic": {
+    "task_id": "44fee18f-caa8-4191-b141-7689f15455e9",
+    "source": "https://cdn-magnific.freepik.com/mystic_v1_generate_44fee18f-caa8-4191-b141-7689f15455e9.png?token=exp=1791634987~hmac=e7c6fe7d538f3ff94230d5f150d6efa28a072fa42ceee52b699af4924ef1f32a&size=stable",
+    "size": [
+      900,
+      672
+    ],
+    "prompt": "An adult doing a gentle stretch with hands on the lower back, standing tall and relaxed, a balanced stack of smooth stones beside them symbolizing a healthy spine"
+  },
+  "who-recovery": {
+    "task_id": "eb90be4c-5512-4755-8eb0-8c6c8c487b21",
+    "source": "https://cdn-magnific.freepik.com/mystic_v1_generate_eb90be4c-5512-4755-8eb0-8c6c8c487b21.png?token=exp=1791634990~hmac=bc305de177917a3efbf99f77af8be51f513c1d14ec050d7f9e23ba6b2c6d188a&size=stable",
+    "size": [
+      900,
+      672
+    ],
+    "prompt": "A woman resting comfortably under a soft blanket holding a warm cup of tea, a few green leaves floating around, peaceful postpartum and post-surgery recovery"
+  },
+  "step-consult": {
+    "task_id": "99e335f0-644d-4bba-a3d1-e8bdbfdc26de",
+    "source": "https://cdn-magnific.freepik.com/mystic_v1_generate_99e335f0-644d-4bba-a3d1-e8bdbfdc26de.png?token=exp=1791634994~hmac=08a0665dd63bd34ca5ad185f3362ca02deae3ed3212a51ed855d1d2e5148494b&size=stable",
+    "size": [
+      600,
+      600
+    ],
+    "prompt": "A friendly doctor in a simple coat listening attentively to a seated patient across a small table, conversation, consultation"
+  },
+  "step-documents": {
+    "task_id": "a36c3f7e-f54f-4adc-8bb2-87a4c79b4984",
+    "source": "https://cdn-magnific.freepik.com/mystic_v1_generate_a36c3f7e-f54f-4adc-8bb2-87a4c79b4984.png?token=exp=1791634995~hmac=5313b072a9682c4b784af440199c8f5b14b5bfd3b236b36f266175454a6369b4&size=stable",
+    "size": [
+      600,
+      600
+    ],
+    "prompt": "A tidy arrangement of a clipboard with paper, a small medicine bottle, an x-ray film sheet and a smartphone on a table, organized paperwork"
+  },
+  "step-room": {
+    "task_id": "376c1e85-ca45-40e8-b8d5-1615783f0145",
+    "source": "https://cdn-magnific.freepik.com/mystic_v1_generate_376c1e85-ca45-40e8-b8d5-1615783f0145.png?token=exp=1791634999~hmac=1d3ace928cc240c1a5e9f0cda72560fde03a746df4fd221021d2f463da061b6d&size=stable",
+    "size": [
+      600,
+      600
+    ],
+    "prompt": "An open door leading into a bright simple room with a neatly made bed and a window, welcoming, a small room key tag"
+  },
+  "step-prepare": {
+    "task_id": "c3284a59-ee79-4d46-a9d0-b6a5cb44484c",
+    "source": "https://cdn-magnific.freepik.com/mystic_v1_generate_c3284a59-ee79-4d46-a9d0-b6a5cb44484c.png?token=exp=1791635003~hmac=769df61718b6aa91cf6134db73e3e892ecbc1ae903785578700deccd42ee2673&size=stable",
+    "size": [
+      600,
+      600
+    ],
+    "prompt": "A small overnight bag with a folded towel, a toothbrush cup, slippers and a water bottle neatly placed beside it, getting ready for a hospital stay"
+  },
+  "insurance-paperwork": {
+    "task_id": "3494427b-2f8d-4a67-83a7-090700fd8e91",
+    "source": "https://cdn-magnific.freepik.com/mystic_v1_generate_3494427b-2f8d-4a67-83a7-090700fd8e91.png?token=exp=1791635007~hmac=1174f0717aa4c6428fa4c9dfaabc887e21ed61cb7d62d9ecb87a10401727379e&size=stable",
+    "size": [
+      900,
+      672
+    ],
+    "prompt": "A smartphone showing a simple chat bubble, a folded insurance document with a check mark and a small car icon, a hand passing the document to another hand, worry-free and simple process"
+  }
+}
