@@ -63,6 +63,7 @@ def main():
 
     # 1) 아직 없는 이미지만 요청
     pending = {}
+    req_failed = 0
     for job in jobs:
         out = os.path.join(out_dir, job["id"] + ".jpg")
         if os.path.exists(out) and not job.get("regenerate"):
@@ -86,11 +87,12 @@ def main():
             print(f"[sent] {job['id']} -> {tid}")
         except Exception as e:
             print(f"[fail] {job['id']} 요청 실패: {e}")
+            req_failed += 1
         time.sleep(1.5)
 
     # 2) 완료될 때까지 확인 (최대 8분)
     deadline = time.time() + 480
-    done, failed = 0, 0
+    done, failed = 0, req_failed
     while pending and time.time() < deadline:
         time.sleep(6)
         for tid in list(pending):
