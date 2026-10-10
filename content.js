@@ -47,9 +47,15 @@ window.SITE = {
     eyebrow: "노블아이경희한의원 입원실 · 동탄2신도시",
     title: "사고 뒤,\n회복에만 집중하는 시간",
     subtitle: "교통사고 후유증 입원 치료를 중심으로 운영하는 소규모 입원실입니다.\n1인실과 가족실, 개별 화장실·샤워실에서 조용히 회복하세요.",
-    // 원래 병실 사진으로 되돌리려면: image: "images/hero.jpg", alt: "노블아이경희한의원 입원실 병실"
-    image: "images/ai/hero-mood-a.jpg",
-    alt: "햇살이 드는 창가와 따뜻한 차 한 잔",
+    // 첫 화면 사진 (2장 이상이면 자동으로 넘어갑니다). 순서를 바꾸거나 줄을 지우면 그대로 반영됩니다.
+    // 회전 없이 한 장만 쓰려면 한 줄만 남기세요. 원래 병실 사진: "images/hero.jpg"
+    images: [
+      { src: "images/ai/hero-mood-a.jpg", alt: "햇살이 드는 창가와 따뜻한 차 한 잔" },
+      { src: "images/hero.jpg", alt: "노블아이경희한의원 입원실 병실" },
+      { src: "images/ai/hero-mood-c.jpg", alt: "한약재와 따뜻한 한방차" },
+      { src: "images/ai/hero-mood-b.jpg", alt: "가지런히 개어 둔 수건과 담요" }
+    ],
+    interval: 6,   // 넘어가는 간격(초)
     badges: ["1인실 · 가족실", "전 객실 개별 화장실·샤워실", "자동차보험 본인 부담 없음", "일요일·명절 입원 문의 가능"]
   },
 
@@ -157,12 +163,12 @@ window.SITE = {
     title: "입원 중 받는 치료",
     lead: "통증에 예민하거나 침·추나가 두려운 분도 편안하게 받으실 수 있도록 반응을 살피며 자극 강도를 조절합니다.",
     items: [
-      { title: "침 · 전침", desc: "막힌 경락을 소통시키고 근육의 과긴장을 풉니다." },
-      { title: "약침", desc: "정제한 한약 성분을 통증 부위에 직접 주입해 염증과 통증을 가라앉힙니다." },
-      { title: "추나 요법", desc: "원장이 직접 틀어진 척추와 골반을 바로잡아 신경 압박을 완화합니다." },
-      { title: "한약 치료", desc: "어혈을 풀고 손상된 근육·인대의 회복을 돕는 맞춤 한약을 처방합니다." },
-      { title: "부항 · 뜸 · 온열", desc: "어혈과 노폐물 배출을 돕고 깊은 근육층을 따뜻하게 이완합니다." },
-      { title: "한방 물리치료", desc: "간섭파(ICT), 핫팩 등으로 근육을 부드럽게 풀어줍니다." }
+      { image: "images/ai/tr-acupuncture.jpg", title: "침 · 전침", desc: "막힌 경락을 소통시키고 근육의 과긴장을 풉니다." },
+      { image: "images/ai/tr-pharmacopuncture.jpg", title: "약침", desc: "정제한 한약 성분을 통증 부위에 직접 주입해 염증과 통증을 가라앉힙니다." },
+      { image: "images/ai/tr-chuna.jpg", title: "추나 요법", desc: "원장이 직접 틀어진 척추와 골반을 바로잡아 신경 압박을 완화합니다." },
+      { image: "images/ai/tr-herbal.jpg", title: "한약 치료", desc: "어혈을 풀고 손상된 근육·인대의 회복을 돕는 맞춤 한약을 처방합니다." },
+      { image: "images/ai/tr-cupping-moxa.jpg", title: "부항 · 뜸 · 온열", desc: "어혈과 노폐물 배출을 돕고 깊은 근육층을 따뜻하게 이완합니다." },
+      { image: "images/ai/tr-physio.jpg", title: "한방 물리치료", desc: "간섭파(ICT), 핫팩 등으로 근육을 부드럽게 풀어줍니다." }
     ],
     extra: {
       title: "영상 검사가 필요하다면",

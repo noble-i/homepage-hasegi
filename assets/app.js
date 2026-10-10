@@ -43,7 +43,41 @@
 
   /* ---------- 첫 화면 ---------- */
   var h = S.hero || {};
-  if ($("heroImg")) { $("heroImg").src = h.image || ""; if (h.alt) $("heroImg").alt = h.alt; }
+(function () {
+  var slides = (h.images && h.images.length) ? h.images : [{ src: h.image || "", alt: h.alt }];
+  var heroMedia = document.querySelector(".hero-media");
+  if (heroMedia) {
+    heroMedia.innerHTML = slides.map(function (s, i) {
+      return '<img class="hero-slide' + (i === 0 ? " is-on" : "") + '" src="' + esc(s.src) + '" alt="' + esc(s.alt || "") + '"' +
+        (i === 0 ? ' fetchpriority="high"' : ' loading="lazy"') + (i === 0 ? "" : ' aria-hidden="true"') + ">";
+    }).join("");
+  }
+  if (heroMedia && slides.length > 1) {
+    var heroImgs = heroMedia.querySelectorAll(".hero-slide"), heroCur = 0, heroTimer = null;
+    var dots = document.createElement("div");
+    dots.className = "hero-dots";
+    dots.innerHTML = slides.map(function (s, i) {
+      return '<button type="button" aria-label="' + (i + 1) + '번째 사진"' + (i === 0 ? ' aria-current="true"' : "") + "></button>";
+    }).join("");
+    heroMedia.parentNode.appendChild(dots);
+    var dotBtns = dots.querySelectorAll("button");
+    var heroShow = function (n) {
+      n = (n + slides.length) % slides.length;
+      heroImgs[heroCur].classList.remove("is-on"); heroImgs[heroCur].setAttribute("aria-hidden", "true"); dotBtns[heroCur].removeAttribute("aria-current");
+      heroCur = n;
+      heroImgs[heroCur].loading = "eager";
+      heroImgs[heroCur].classList.add("is-on"); heroImgs[heroCur].removeAttribute("aria-hidden"); dotBtns[heroCur].setAttribute("aria-current", "true");
+    };
+    var reduceHero = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var heroStart = function () { if (!reduceHero && !heroTimer) heroTimer = setInterval(function () { heroShow(heroCur + 1); }, Math.max(3, h.interval || 6) * 1000); };
+    var heroStop = function () { clearInterval(heroTimer); heroTimer = null; };
+    Array.prototype.forEach.call(dotBtns, function (b, i) { b.addEventListener("click", function () { heroStop(); heroShow(i); heroStart(); }); });
+    document.addEventListener("visibilitychange", function () { if (document.hidden) heroStop(); else heroStart(); });
+    // 다음 사진은 첫 화면이 뜬 뒤에 미리 받아 둡니다
+    window.addEventListener("load", function () { Array.prototype.forEach.call(heroImgs, function (im) { im.loading = "eager"; }); });
+    heroStart();
+  }
+  })();
   setText("heroEyebrow", h.eyebrow);
   setText("heroTitle", h.title);
   setText("heroSub", h.subtitle);
@@ -107,7 +141,9 @@
   var t = S.treatments || {};
   setText("trEyebrow", t.eyebrow); setText("trTitle", t.title); setText("trLead", t.lead);
   setHtml("trItems", (t.items || []).map(function (it) {
-    return '<div class="card"><h3>' + esc(it.title) + "</h3><p>" + esc(it.desc) + "</p></div>";
+    return '<div class="card' + (it.image ? " has-illust" : "") + '">' +
+      (it.image ? '<img class="card-illust" src="' + esc(it.image) + '" alt="" loading="lazy">' : "") +
+      "<h3>" + esc(it.title) + "</h3><p>" + esc(it.desc) + "</p></div>";
   }).join(""));
   if (t.extra) setHtml("trExtra", '<div class="icon">' + ICONS.scan + "</div><div><h4>" + esc(t.extra.title) + "</h4><p>" + esc(t.extra.desc) + "</p></div>");
   else if ($("trExtra")) $("trExtra").hidden = true;
