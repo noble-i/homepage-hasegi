@@ -1,5 +1,5 @@
 {
-  "_실행": "2026-10-10 3차 (추나 남성 한의사)",
+  "_실행": "2026-10-11 캐릭터 시안 1차 (기와·나빌레라)",
   "_안내": "jobs 에 항목을 추가하고 저장(푸시)하면 GitHub Actions 가 새 항목만 생성합니다. 다시 만들려면 해당 항목에 \"regenerate\": true 를 넣으세요. 실제 병실·치료 장면은 실제 사진을 쓰고, AI 이미지는 분위기·설명용으로만 씁니다.",
   "defaults": {
     "illust": {
@@ -23,6 +23,28 @@
     "photo": {
       "model": "realism",
       "suffix": "Natural soft daylight, quiet and calm, shallow depth of field, editorial interior photography, warm neutral tones. No people, no text, no logos."
+    },
+    "mascot_flat": {
+      "model": "fluid",
+      "suffix": "Original mascot character design sheet style, single character centered, full body, friendly and gentle, soft rounded shapes, clean flat vector illustration with subtle shading, deep forest green, warm muted gold and cream palette, plain cream background, no text, no letters, no logo, no watermark.",
+      "colors": [
+        {
+          "color": "#1f4d3d",
+          "weight": 0.4
+        },
+        {
+          "color": "#b8975a",
+          "weight": 0.3
+        },
+        {
+          "color": "#f7f4ee",
+          "weight": 0.3
+        }
+      ]
+    },
+    "mascot_3d": {
+      "model": "fluid",
+      "suffix": "Original mascot character, single character centered, full body, soft 3D clay toy render, matte material, gentle studio lighting, friendly and calm expression, deep forest green, warm gold and cream palette, plain cream background, no text, no letters, no logo, no watermark."
     }
   },
   "jobs": [
@@ -132,8 +154,7 @@
       "style": "illust",
       "aspect_ratio": "classic_4_3",
       "width": 900,
-      "prompt": "A male Korean medicine doctor in his forties with short black hair, wearing a simple dark green practitioner top, gently placing both hands on the lower back of a patient lying face down on a padded treatment table, Korean chuna manual therapy for spine and pelvis alignment, careful and calm, plain cream background",
-      "regenerate": true
+      "prompt": "A male Korean medicine doctor in his forties with short black hair, wearing a simple dark green practitioner top, gently placing both hands on the lower back of a patient lying face down on a padded treatment table, Korean chuna manual therapy for spine and pelvis alignment, careful and calm, plain cream background"
     },
     {
       "id": "tr-herbal",
@@ -155,6 +176,48 @@
       "aspect_ratio": "classic_4_3",
       "width": 900,
       "prompt": "A patient resting comfortably on a treatment bed with a warm hot pack on the lower back and a small interferential electrotherapy device with soft pads beside the bed, relaxing physical therapy"
+    },
+    {
+      "id": "char-giwa-flat",
+      "style": "mascot_flat",
+      "aspect_ratio": "square_1_1",
+      "width": 1024,
+      "prompt": "a cute character shaped like a traditional Korean curved roof tile (giwa), the tile body forms its rounded arched back and head, small round eyes and a tiny gentle smile on the tile's round end face, short stubby arms and legs, subtle traditional tile ridge lines"
+    },
+    {
+      "id": "char-giwa-3d",
+      "style": "mascot_3d",
+      "aspect_ratio": "square_1_1",
+      "width": 1024,
+      "prompt": "a cute character shaped like a traditional Korean curved roof tile (giwa), the tile body forms its rounded arched back and head, small round eyes and a tiny gentle smile on the tile's round end face, short stubby arms and legs, subtle traditional tile ridge lines"
+    },
+    {
+      "id": "char-butterfly-flat",
+      "style": "mascot_flat",
+      "aspect_ratio": "square_1_1",
+      "width": 1024,
+      "prompt": "a cute gentle butterfly character inspired by the Korean word 'nabillera' (fluttering like a butterfly), round soft body with small smiling face, large graceful rounded wings with delicate subtle traditional Korean cloud pattern, elegant and calm, wings softly open as if dancing"
+    },
+    {
+      "id": "char-butterfly-3d",
+      "style": "mascot_3d",
+      "aspect_ratio": "square_1_1",
+      "width": 1024,
+      "prompt": "a cute gentle butterfly character inspired by the Korean word 'nabillera' (fluttering like a butterfly), round soft body with small smiling face, large graceful rounded wings with delicate subtle traditional Korean cloud pattern, elegant and calm, wings softly open as if dancing"
+    },
+    {
+      "id": "char-duo-flat",
+      "style": "mascot_flat",
+      "aspect_ratio": "classic_4_3",
+      "width": 1200,
+      "prompt": "Two original friend characters side by side: a cute character shaped like a traditional Korean curved roof tile (giwa), the tile body forms its rounded arched back and head, small round eyes and a tiny gentle smile on the tile's round end face, short stubby arms and legs, subtle traditional tile ridge lines, and a small a cute gentle butterfly character inspired by the Korean word 'nabillera' (fluttering like a butterfly), round soft body with small smiling face, large graceful rounded wings with delicate subtle traditional Korean cloud pattern, elegant and calm, wings softly open as if dancing resting happily on top of the tile character's head, warm caring friendship, recovery and comfort"
+    },
+    {
+      "id": "char-duo-3d",
+      "style": "mascot_3d",
+      "aspect_ratio": "classic_4_3",
+      "width": 1200,
+      "prompt": "Two original friend characters side by side: a cute character shaped like a traditional Korean curved roof tile (giwa), the tile body forms its rounded arched back and head, small round eyes and a tiny gentle smile on the tile's round end face, short stubby arms and legs, subtle traditional tile ridge lines, and a small a cute gentle butterfly character inspired by the Korean word 'nabillera' (fluttering like a butterfly), round soft body with small smiling face, large graceful rounded wings with delicate subtle traditional Korean cloud pattern, elegant and calm, wings softly open as if dancing resting happily on top of the tile character's head, warm caring friendship, recovery and comfort"
     }
   ]
 }
