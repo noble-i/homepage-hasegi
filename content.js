@@ -191,10 +191,10 @@ window.SITE = {
     video: {
       src: "videos/room-tour.mp4",
       poster: "images/room-tour-poster.jpg",
-      label: "VIDEO TOUR",
-      title: "영상으로 먼저 둘러보세요",
-      desc: "병실 문을 열고 들어서는 순간부터 개별 샤워실까지, 실제 입원실 모습을 그대로 담았습니다.",
-      points: ["병실 내부와 창가 쪽 공간", "병실 안 개별 화장실 · 샤워실", "실제 입원실에서 촬영한 영상"]
+      label: "VIDEO TOUR · LARGE FAMILY ROOM",
+      title: "큰 가족실을 영상으로 둘러보세요",
+      desc: "베드 세 개가 놓인 큰 가족실입니다. 병실 문을 열고 들어서는 순간부터 개별 샤워실까지, 실제 모습을 그대로 담았습니다.",
+      points: ["베드 3개, 가족이 한 공간에서 함께", "병실 안 개별 화장실 · 샤워실", "실제 입원실에서 촬영한 영상"]
     },
     items: [
       { src: "images/room-single-01.jpg", caption: "1인실" },
