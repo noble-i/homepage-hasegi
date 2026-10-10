@@ -1,4 +1,4 @@
-2026-10-10 23:09:39 UTC
+2026-10-10 23:10:34 UTC
 [skip] hero-mood-a (이미 있음)
 [skip] hero-mood-b (이미 있음)
 [skip] who-accident (이미 있음)
@@ -29,4 +29,4 @@
 
 [fail] char-duo-3d 요청 실패: HTTP 403: {"message":"Your account has been disabled."}
 
-완료 0건, 실패 0건
+완료 0건, 실패 6건
