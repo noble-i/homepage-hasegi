@@ -120,7 +120,7 @@ window.SITE = {
         name: "1인실",
         en: "PRIVATE ROOM",
         summary: "한 분의 회복 리듬에 맞춘 조용한 공간",
-        features: ["싱글 베드", "개별 화장실 · 샤워실", "TV · 냉장고", "신리천 방향 창"],
+        features: ["싱글 베드", "개별 화장실 · 샤워실", "냉장고", "신리천 방향 창"],
         image: "images/room-single-01.jpg",
         highlight: false
       },
@@ -128,24 +128,24 @@ window.SITE = {
         name: "부부가족실",
         en: "COUPLE ROOM",
         summary: "넓은 퀸 베드, 두 분이 가까이 머무는 공간",
-        features: ["퀸 베드", "개별 화장실 · 샤워실", "TV · 냉장고", "보호자 동반 가능"],
-        image: "images/room-couple-01.jpg",
+        features: ["퀸 베드", "개별 화장실 · 샤워실", "냉장고", "보호자 동반 가능"],
+        image: "images/room-couple-02.jpg",
         highlight: true
       },
       {
         name: "작은 가족실",
         en: "SMALL FAMILY ROOM",
         summary: "퀸 베드와 보조 자리, 1인 동반이 편안한 공간",
-        features: ["퀸 베드 + 보조 자리", "개별 화장실 · 샤워실", "아이 동반 가능", "TV · 냉장고"],
-        image: "images/room-family-01.jpg",
+        features: ["퀸 베드 + 보조 자리", "개별 화장실 · 샤워실", "아이 동반 가능", "냉장고"],
+        image: "images/room-family-02.jpg",
         highlight: true
       },
       {
         name: "큰 가족실",
         en: "LARGE FAMILY ROOM",
         summary: "베드 세 개, 가족이 한 공간에서 함께 회복",
-        features: ["베드 3개", "개별 화장실 · 샤워실", "가족 동반 입원", "TV · 냉장고"],
-        image: "images/room-02.jpg",
+        features: ["베드 3개", "개별 화장실 · 샤워실", "가족 동반 입원", "냉장고"],
+        image: "images/room-large-01.jpg",
         highlight: true
       }
     ],
@@ -207,21 +207,17 @@ window.SITE = {
     },
     items: [
       { src: "images/room-single-01.jpg", caption: "1인실" },
-      { src: "images/room-family-01.jpg", caption: "가족실" },
-      { src: "images/room-couple-01.jpg", caption: "병실과 개별 샤워실" },
+      { src: "images/room-large-01.jpg", caption: "큰 가족실" },
+      { src: "images/room-family-02.jpg", caption: "가족실" },
+      { src: "images/hero.jpg", caption: "병실" },
       { src: "images/room-single-02.jpg", caption: "병실 내부" },
       { src: "images/bath-02.jpg", caption: "개별 샤워실" },
-      { src: "images/bath-03.jpg", caption: "세면대" },
-      { src: "images/room-03.jpg", caption: "병실" },
-      { src: "images/room-05.jpg", caption: "병실" },
-      { src: "images/room-07.jpg", caption: "병실" },
       { src: "images/hall-02.jpg", caption: "입원실 복도" },
       { src: "images/pantry-01.jpg", caption: "공용 탕비실" },
       { src: "images/lounge-01.jpg", caption: "휴게 공간" },
       { src: "images/kids-01.jpg", caption: "키즈 코너" },
       { src: "images/treatment-01.jpg", caption: "치료실" },
       { src: "images/treatment-02.jpg", caption: "추나 치료 베드" },
-      { src: "images/clinic-01.jpg", caption: "4층 진료실 접수" },
       { src: "images/building-01.jpg", caption: "양지프라자 전경" },
       { src: "images/building-02.jpg", caption: "양지프라자 저녁" }
     ]
