@@ -50,8 +50,8 @@ window.SITE = {
     // 첫 화면 사진 (2장 이상이면 자동으로 넘어갑니다). 순서를 바꾸거나 줄을 지우면 그대로 반영됩니다.
     // 회전 없이 한 장만 쓰려면 한 줄만 남기세요. 원래 병실 사진: "images/hero.jpg"
     images: [
-      { src: "images/ai/hero-mood-a.jpg", alt: "햇살이 드는 창가와 따뜻한 차 한 잔" },
       { src: "images/hero.jpg", alt: "노블아이경희한의원 입원실 병실" },
+      { src: "images/ai/hero-mood-a.jpg", alt: "햇살이 드는 창가와 따뜻한 차 한 잔" },
       { src: "images/ai/hero-mood-c.jpg", alt: "한약재와 따뜻한 한방차" },
       { src: "images/ai/hero-mood-b.jpg", alt: "가지런히 개어 둔 수건과 담요" }
     ],
