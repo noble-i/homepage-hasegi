@@ -47,14 +47,7 @@ window.SITE = {
     eyebrow: "노블아이경희한의원 입원실 · 동탄2신도시",
     title: "사고 뒤,\n회복에만 집중하는 시간",
     subtitle: "교통사고 후유증 입원 치료를 중심으로 운영하는 소규모 입원실입니다.\n1인실과 가족실, 개별 화장실·샤워실에서 조용히 회복하세요.",
-    // 첫 화면 사진 (2장 이상이면 자동으로 넘어갑니다). 순서를 바꾸거나 줄을 지우면 그대로 반영됩니다.
-    // 회전 없이 한 장만 쓰려면 한 줄만 남기세요. 원래 병실 사진: "images/hero.jpg"
-    images: [
-      { src: "images/hero.jpg", alt: "노블아이경희한의원 입원실 병실" },
-      { src: "images/ai/hero-mood-a.jpg", alt: "햇살이 드는 창가와 따뜻한 차 한 잔" },
-      { src: "images/ai/hero-mood-c.jpg", alt: "한약재와 따뜻한 한방차" },
-      { src: "images/ai/hero-mood-b.jpg", alt: "가지런히 개어 둔 수건과 담요" }
-    ],
+    // 첫 화면 사진은 photos.js (관리 페이지 admin.html) 에서 바꿉니다. 2장 이상이면 자동으로 넘어갑니다.
     interval: 6,   // 넘어가는 간격(초)
     badges: ["1인실 · 가족실", "전 객실 개별 화장실·샤워실", "자동차보험 본인 부담 없음", "일요일·명절 입원 문의 가능"]
   },
@@ -115,13 +108,13 @@ window.SITE = {
     eyebrow: "ROOMS",
     title: "1인실과 가족실,\n모든 병실에 개별 화장실·샤워실",
     lead: "혼자 조용히 회복하거나, 아이와 가족이 함께 머물 수 있도록 병실을 나누었습니다. 병실 배정은 진료 후 병실 상황에 따라 안내해 드립니다.",
+    // 병실 사진은 photos.js (관리 페이지 admin.html) 에서 바꿉니다.
     items: [
       {
         name: "1인실",
         en: "PRIVATE ROOM",
         summary: "한 분의 회복 리듬에 맞춘 조용한 공간",
         features: ["싱글 베드", "개별 화장실 · 샤워실", "냉장고", "신리천 방향 창"],
-        image: "images/room-single-01.jpg",
         highlight: false
       },
       {
@@ -129,7 +122,6 @@ window.SITE = {
         en: "COUPLE ROOM",
         summary: "넓은 퀸 베드, 두 분이 가까이 머무는 공간",
         features: ["퀸 베드", "개별 화장실 · 샤워실", "냉장고", "보호자 동반 가능"],
-        image: "images/room-couple-02.jpg",
         highlight: true
       },
       {
@@ -137,7 +129,6 @@ window.SITE = {
         en: "SMALL FAMILY ROOM",
         summary: "퀸 베드와 보조 자리, 1인 동반이 편안한 공간",
         features: ["퀸 베드 + 보조 자리", "개별 화장실 · 샤워실", "아이 동반 가능", "냉장고"],
-        image: "images/room-family-02.jpg",
         highlight: true
       },
       {
@@ -145,7 +136,6 @@ window.SITE = {
         en: "LARGE FAMILY ROOM",
         summary: "베드 세 개, 가족이 한 공간에서 함께 회복",
         features: ["베드 3개", "개별 화장실 · 샤워실", "가족 동반 입원", "냉장고"],
-        image: "images/room-large-01.jpg",
         highlight: true
       }
     ],
@@ -205,22 +195,8 @@ window.SITE = {
       desc: "베드 세 개가 놓인 큰 가족실입니다. 병실 문을 열고 들어서는 순간부터 개별 샤워실까지, 실제 모습을 그대로 담았습니다.",
       points: ["베드 3개, 가족이 한 공간에서 함께", "병실 안 개별 화장실 · 샤워실", "실제 입원실에서 촬영한 영상"]
     },
-    items: [
-      { src: "images/room-single-01.jpg", caption: "1인실" },
-      { src: "images/room-large-01.jpg", caption: "큰 가족실" },
-      { src: "images/room-family-02.jpg", caption: "가족실" },
-      { src: "images/hero.jpg", caption: "병실" },
-      { src: "images/room-single-02.jpg", caption: "병실 내부" },
-      { src: "images/bath-02.jpg", caption: "개별 샤워실" },
-      { src: "images/hall-02.jpg", caption: "입원실 복도" },
-      { src: "images/pantry-01.jpg", caption: "공용 탕비실" },
-      { src: "images/lounge-01.jpg", caption: "휴게 공간" },
-      { src: "images/kids-01.jpg", caption: "키즈 코너" },
-      { src: "images/treatment-01.jpg", caption: "치료실" },
-      { src: "images/treatment-02.jpg", caption: "추나 치료 베드" },
-      { src: "images/building-01.jpg", caption: "양지프라자 전경" },
-      { src: "images/building-02.jpg", caption: "양지프라자 저녁" }
-    ]
+    // 갤러리 사진은 photos.js (관리 페이지 admin.html) 에서 바꿉니다.
+    items: []
   },
 
   /* ---------- 자주 묻는 질문 ---------- */

@@ -4,6 +4,18 @@
    ===================================================================== */
 (function () {
   var S = window.SITE || {};
+  /* 사진 설정(photos.js)이 있으면 그 내용을 우선 사용 */
+  var PH = window.PHOTOS;
+  if (PH) {
+    if (PH.hero && PH.hero.length) { S.hero = S.hero || {}; S.hero.images = PH.hero; }
+    if (PH.rooms && S.rooms && S.rooms.items) {
+      S.rooms.items.forEach(function (r, i) {
+        var m = PH.rooms.filter(function (x) { return x.name === r.name; })[0] || PH.rooms[i];
+        if (m && m.image) r.image = m.image;
+      });
+    }
+    if (PH.gallery) { S.gallery = S.gallery || {}; S.gallery.items = PH.gallery; }
+  }
   var $ = function (id) { return document.getElementById(id); };
   var esc = function (s) {
     return String(s == null ? "" : s)

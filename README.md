@@ -6,6 +6,14 @@
 
 `index.html` 을 더블클릭하면 브라우저에서 열립니다.
 
+## 사진 바꾸기 (관리 페이지)
+
+`https://noble-i.github.io/homepage-hasegi/admin.html` 에서 병실 카드·갤러리·첫 화면 사진을 고르고, 새 사진을 올리고, 설명을 고친 뒤 **저장**하면 1~2분 뒤 홈페이지에 반영됩니다.
+
+- 처음 한 번 GitHub 토큰을 연결해야 합니다(화면 안내 참고). 토큰은 그 기기 브라우저에만 저장됩니다.
+- 올린 사진은 가로 1600px JPG로 줄여 `images/uploads/` 에 저장됩니다.
+- 사진 설정은 `photos.js` 에 저장됩니다. content.js 의 사진 항목은 쓰지 않습니다.
+
 ## 내용 수정 방법
 
 **`content.js` 파일 하나만 고치면 됩니다.** 메모장이나 VS Code로 열어 따옴표 안의 글자를 바꾸고 저장한 뒤, 브라우저에서 새로고침하세요.
@@ -18,7 +26,7 @@
 | 병실 종류, 사진, 특징 | `rooms.items` |
 | 자동차보험 안내 문구 | `insurance.auto` |
 | 건강보험 입원 안내 켜기 | `insurance.health.enabled` 를 `true` 로 |
-| 사진 갤러리 | `gallery.items` |
+| 사진 갤러리 | 관리 페이지 또는 `photos.js` |
 | 자주 묻는 질문 | `faq.items` |
 | 원장 소개 | `doctor` |
 | 주소, 주차, 교통편 | `location` |
@@ -49,7 +57,9 @@
 ```
 noble-i-inpatient/
 ├─ index.html        화면 뼈대 (보통 손대지 않음)
-├─ content.js        ★ 모든 글과 사진 목록 (여기만 수정)
+├─ content.js        ★ 모든 글 (여기서 수정)
+├─ photos.js         사진 설정 (관리 페이지가 자동으로 고침)
+├─ admin.html        사진 관리 페이지
 ├─ assets/
 │  ├─ style.css      디자인
 │  ├─ app.js         content.js 를 읽어 화면을 채우는 스크립트

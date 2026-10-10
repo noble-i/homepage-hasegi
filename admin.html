@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>사진 관리 | 노블아이 입원실</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root {
+    --green: #1f4d3d; --green-deep: #163a2e; --green-soft: #e8f0ec; --gold: #b8975a; --gold-soft: #f3ead8;
+    --cream: #f7f4ee; --ink: #1b2420; --ink-soft: #4b5a53; --muted: #7d8a84; --line: #e3e7e4; --red: #b4432f;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Pretendard Variable", Pretendard, -apple-system, system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    background: var(--cream); color: var(--ink); font-size: 15px; line-height: 1.55; word-break: keep-all; padding-bottom: 110px; }
+  button, input { font: inherit; }
+  a { color: var(--green); }
+  .top { background: var(--green-deep); color: #fff; padding: 14px 16px; position: sticky; top: 0; z-index: 20; }
+  .top-in { max-width: 980px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .top h1 { margin: 0; font-size: 17px; }
+  .top h1 small { display: block; font-size: 12px; color: #c6d6ce; font-weight: 500; }
+  .top a { color: #f0dfb9; font-size: 14px; font-weight: 600; text-decoration: none; white-space: nowrap; }
+  main { max-width: 980px; margin: 0 auto; padding: 16px; }
+  .panel { background: #fff; border-radius: 16px; padding: 20px 18px; margin-bottom: 16px; box-shadow: 0 4px 18px rgba(22,58,46,.06); }
+  .panel h2 { margin: 0 0 4px; font-size: 18px; color: var(--green-deep); }
+  .panel .desc { margin: 0 0 16px; color: var(--ink-soft); font-size: 14px; }
+  .token-box { border: 2px solid var(--gold); }
+  .token-box ol { padding-left: 20px; margin: 8px 0 14px; color: var(--ink-soft); font-size: 14px; }
+  .token-box li { margin-bottom: 4px; }
+  .row-inline { display: flex; gap: 8px; flex-wrap: wrap; }
+  .row-inline input { flex: 1 1 220px; min-width: 0; }
+  input[type=text], input[type=password] { width: 100%; padding: 10px 12px; border: 1.5px solid var(--line); border-radius: 10px; background: #fff; }
+  input:focus { outline: none; border-color: var(--green); }
+  .btn { border: 0; border-radius: 10px; padding: 10px 16px; font-weight: 700; cursor: pointer; background: var(--green-soft); color: var(--green-deep); }
+  .btn:hover { filter: brightness(.97); }
+  .btn.primary { background: var(--green); color: #fff; }
+  .btn.gold { background: var(--gold); color: #1b1b1b; }
+  .btn.ghost { background: transparent; border: 1.5px solid var(--line); color: var(--ink-soft); }
+  .btn.small { padding: 7px 11px; font-size: 13px; }
+  .btn:disabled { opacity: .45; cursor: not-allowed; }
+  .ok-line { font-size: 14px; color: var(--green); font-weight: 600; }
+  .rooms { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .room { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #fff; display: flex; flex-direction: column; }
+  .room img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--cream); display: block; }
+  .room .r-body { padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 8px; }
+  .room b { color: var(--green-deep); }
+  .list { display: grid; gap: 10px; }
+  .item { display: grid; grid-template-columns: 96px 1fr auto; gap: 12px; align-items: center; padding: 8px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+  .item img { width: 96px; height: 72px; object-fit: cover; border-radius: 8px; background: var(--cream); cursor: pointer; display: block; }
+  .item .num { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+  .item .num em { font-style: normal; color: var(--gold); font-weight: 700; }
+  .item .tools { display: flex; gap: 4px; }
+  .item .tools button { width: 36px; height: 36px; border-radius: 9px; border: 1px solid var(--line); background: #fff; cursor: pointer; font-size: 16px; color: var(--ink-soft); }
+  .item .tools button.del { color: var(--red); }
+  .item .tools button:disabled { opacity: .3; }
+  .add-row { margin-top: 12px; }
+  .bar { position: fixed; left: 0; right: 0; bottom: 0; background: #fff; border-top: 1px solid var(--line); box-shadow: 0 -6px 20px rgba(0,0,0,.06); padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)); z-index: 30; }
+  .bar-in { max-width: 980px; margin: 0 auto; display: flex; align-items: center; gap: 12px; justify-content: space-between; }
+  .bar .status { font-size: 14px; color: var(--ink-soft); }
+  .bar .status.dirty { color: var(--red); font-weight: 600; }
+  .modal { position: fixed; inset: 0; background: rgba(10,20,16,.6); z-index: 50; display: flex; align-items: flex-end; justify-content: center; }
+  .modal[hidden] { display: none; }
+  .sheet { background: #fff; width: 100%; max-width: 980px; max-height: 88vh; border-radius: 18px 18px 0 0; display: flex; flex-direction: column; }
+  .sheet-head { padding: 14px 16px; border-bottom: 1px solid var(--line); display: flex; gap: 8px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+  .sheet-head h3 { margin: 0; font-size: 16px; color: var(--green-deep); }
+  .sheet-body { overflow: auto; padding: 14px 16px 24px; }
+  .folder { font-size: 13px; font-weight: 700; color: var(--muted); margin: 6px 0 8px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; margin-bottom: 16px; }
+  .pick { border: 2px solid transparent; border-radius: 12px; padding: 0; background: var(--cream); cursor: pointer; overflow: hidden; text-align: left; }
+  .pick:hover, .pick:focus { border-color: var(--gold); outline: none; }
+  .pick img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+  .pick span { display: block; font-size: 11.5px; color: var(--ink-soft); padding: 5px 7px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .pick.current { border-color: var(--green); }
+  .toast { position: fixed; left: 50%; top: 76px; transform: translateX(-50%); background: var(--ink); color: #fff; padding: 10px 16px; border-radius: 10px; font-size: 14px; z-index: 60; max-width: calc(100% - 32px); }
+  .toast[hidden] { display: none; }
+  .toast.err { background: var(--red); }
+  .hint { font-size: 13px; color: var(--muted); margin-top: 6px; }
+  @media (max-width: 760px) {
+    .rooms { grid-template-columns: repeat(2, 1fr); }
+    .item { grid-template-columns: 76px 1fr; }
+    .item img { width: 76px; height: 60px; }
+    .item .tools { grid-column: 1 / -1; justify-content: flex-end; }
+    .bar-in { flex-direction: column; align-items: stretch; gap: 8px; }
+    .bar .btn { width: 100%; padding: 13px; }
+  }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <h1>입원실 홈페이지 사진 관리<small>노블아이경희한의원</small></h1>
+    <a href="./" target="_blank" rel="noopener">홈페이지 보기 ↗</a>
+  </div>
+</header>
+
+<main>
+  <section class="panel token-box" id="tokenPanel" hidden>
+    <h2>처음 한 번만: 저장 권한 연결</h2>
+    <p class="desc">사진을 올리고 저장하려면 GitHub 토큰이 필요합니다. 이 기기 브라우저에만 저장되고 다른 곳으로 보내지 않습니다.</p>
+    <ol>
+      <li><a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub 토큰 만들기</a>를 엽니다.</li>
+      <li><b>Token name</b>: 아무 이름(예: 입원실 사진 관리), <b>Expiration</b>: 원하는 기간</li>
+      <li><b>Resource owner</b>: noble-i, <b>Repository access</b>: Only select repositories → <b>homepage-hasegi</b></li>
+      <li><b>Permissions → Repository permissions → Contents</b>: Read and write</li>
+      <li><b>Generate token</b>을 누르고 나온 값을 아래에 붙여 넣습니다.</li>
+    </ol>
+    <div class="row-inline">
+      <input type="password" id="tokenInput" placeholder="github_pat_로 시작하는 값" autocomplete="off">
+      <button class="btn primary" id="tokenSave">연결</button>
+    </div>
+  </section>
+
+  <section class="panel" id="tokenOk" hidden>
+    <div class="row-inline" style="align-items:center;justify-content:space-between">
+      <span class="ok-line">✓ 저장 권한 연결됨 (이 기기)</span>
+      <button class="btn small ghost" id="tokenClear">연결 해제</button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>병실 카드 사진</h2>
+    <p class="desc">'병실 안내' 칸의 대표 사진입니다. 사진을 누르면 바꿀 수 있어요.</p>
+    <div class="rooms" id="roomsList"></div>
+  </section>
+
+  <section class="panel">
+    <h2>사진 갤러리</h2>
+    <p class="desc">'입원실을 미리 둘러보세요' 칸의 사진입니다. 첫 두 장이 크게 보입니다. 사진을 누르면 바꾸고, 설명 글은 바로 고칠 수 있어요.</p>
+    <div class="list" id="galleryList"></div>
+    <div class="add-row"><button class="btn" id="galleryAdd">+ 사진 추가</button></div>
+  </section>
+
+  <section class="panel">
+    <h2>첫 화면 사진</h2>
+    <p class="desc">맨 위 큰 사진입니다. 2장 이상이면 순서대로 넘어갑니다. 설명 글은 화면에 보이지 않고 검색·음성 안내용입니다.</p>
+    <div class="list" id="heroList"></div>
+    <div class="add-row"><button class="btn" id="heroAdd">+ 사진 추가</button></div>
+  </section>
+</main>
+
+<div class="bar">
+  <div class="bar-in">
+    <span class="status" id="status">불러오는 중…</span>
+    <button class="btn gold" id="saveBtn" disabled>저장하고 홈페이지에 반영</button>
+  </div>
+</div>
+
+<div class="modal" id="picker" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="pickerTitle">
+    <div class="sheet-head">
+      <h3 id="pickerTitle">사진 고르기</h3>
+      <div class="row-inline">
+        <label class="btn primary small" for="fileInput" style="display:inline-block">새 사진 올리기</label>
+        <input type="file" id="fileInput" accept="image/*" multiple hidden>
+        <button class="btn small ghost" id="pickerClose">닫기</button>
+      </div>
+    </div>
+    <div class="sheet-body" id="pickerBody"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(function () {
+  var OWNER = "noble-i", REPO = "homepage-hasegi", BRANCH = "main";
+  var FOLDERS = [["images/uploads", "새로 올린 사진"], ["images", "기존 사진"], ["images/ai", "AI 이미지"]];
+  var API = "https://api.github.com/repos/" + OWNER + "/" + REPO + "/contents/";
+  var RAW = "https://raw.githubusercontent.com/" + OWNER + "/" + REPO + "/" + BRANCH + "/";
+  var TOKEN_KEY = "noble-inpatient-admin-token";
+
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); };
+  var store = {
+    get: function () { try { return localStorage.getItem(TOKEN_KEY) || ""; } catch (e) { return memToken; } },
+    set: function (v) { memToken = v; try { localStorage.setItem(TOKEN_KEY, v); } catch (e) {} },
+    clear: function () { memToken = ""; try { localStorage.removeItem(TOKEN_KEY); } catch (e) {} }
+  };
+  var memToken = "";
+  var token = store.get();
+
+  var data = null, sha = null, savedJson = "", library = {}, localPreview = {}, uploading = false;
+
+  /* ---------- 공통 ---------- */
+  var toastTimer;
+  function toast(msg, err) {
+    var t = $("toast"); t.textContent = msg; t.className = "toast" + (err ? " err" : ""); t.hidden = false;
+    clearTimeout(toastTimer); toastTimer = setTimeout(function () { t.hidden = true; }, err ? 6000 : 3000);
+  }
+  function src(path) { return localPreview[path] || (RAW + path.split("/").map(encodeURIComponent).join("/")); }
+  function b64encode(str) { return btoa(unescape(encodeURIComponent(str))); }
+  function b64decode(b64) { return decodeURIComponent(escape(atob(b64.replace(/\s/g, "")))); }
+  function gh(method, path, body) {
+    var headers = { "Accept": "application/vnd.github+json" };
+    if (token) headers.Authorization = "Bearer " + token;
+    if (body) headers["Content-Type"] = "application/json";
+    var url = API + path + (method === "GET" ? (path.indexOf("?") < 0 ? "?" : "&") + "ref=" + BRANCH + "&t=" + Date.now() : "");
+    return fetch(url, { method: method, headers: headers, body: body ? JSON.stringify(body) : undefined, cache: "no-store" })
+      .then(function (r) {
+        if (r.status === 404 && method === "GET") return null;
+        return r.json().catch(function () { return {}; }).then(function (j) {
+          if (!r.ok) { var e = new Error(j.message || ("HTTP " + r.status)); e.status = r.status; throw e; }
+          return j;
+        });
+      });
+  }
+  function explain(e) {
+    if (e.status === 401) return "토큰이 맞지 않거나 만료됐어요. 위에서 다시 연결해 주세요.";
+    if (e.status === 403 || e.status === 404) return "저장 권한이 없어요. 토큰의 저장소(homepage-hasegi)와 Contents: Read and write 권한을 확인해 주세요.";
+    if (e.status === 409) return "다른 곳에서 먼저 저장된 내용이 있어요. 페이지를 새로고침한 뒤 다시 해 주세요.";
+    return "오류: " + e.message;
+  }
+  function isDirty() { return data && JSON.stringify(data) !== savedJson; }
+  function updateBar() {
+    var s = $("status"), b = $("saveBtn");
+    if (!data) return;
+    if (uploading) { s.textContent = "사진 올리는 중…"; s.className = "status"; b.disabled = true; return; }
+    if (isDirty()) { s.textContent = "저장하지 않은 변경이 있어요"; s.className = "status dirty"; b.disabled = !token; }
+    else { s.textContent = "저장된 상태입니다"; s.className = "status"; b.disabled = true; }
+    if (!token && isDirty()) s.textContent = "저장하려면 위에서 권한을 먼저 연결해 주세요";
+  }
+  function showTokenUI() { $("tokenPanel").hidden = !!token; $("tokenOk").hidden = !token; updateBar(); }
+
+  /* ---------- 화면 그리기 ---------- */
+  function render() {
+    $("roomsList").innerHTML = data.rooms.map(function (r, i) {
+      return '<div class="room"><img src="' + esc(src(r.image)) + '" alt="" data-room="' + i + '" style="cursor:pointer">' +
+        '<div class="r-body"><b>' + esc(r.name) + '</b><button class="btn small" data-room="' + i + '">사진 바꾸기</button></div></div>';
+    }).join("");
+    renderList("galleryList", data.gallery, "caption", "설명 (예: 부부가족실)");
+    renderList("heroList", data.hero, "alt", "사진 설명");
+    updateBar();
+  }
+  function renderList(id, arr, field, ph) {
+    $(id).innerHTML = arr.map(function (it, i) {
+      return '<div class="item" data-i="' + i + '">' +
+        '<img src="' + esc(src(it.src)) + '" alt="" data-act="pick" title="눌러서 사진 바꾸기">' +
+        '<div><div class="num"><em>' + (i + 1) + '</em> · ' + esc(it.src.split("/").pop()) + '</div>' +
+        '<input type="text" data-act="text" value="' + esc(it[field] || "") + '" placeholder="' + esc(ph) + '"></div>' +
+        '<div class="tools"><button data-act="up" aria-label="위로"' + (i === 0 ? " disabled" : "") + '>↑</button>' +
+        '<button data-act="down" aria-label="아래로"' + (i === arr.length - 1 ? " disabled" : "") + '>↓</button>' +
+        '<button data-act="del" class="del" aria-label="삭제">✕</button></div></div>';
+    }).join("") || '<p class="hint">사진이 없습니다.</p>';
+  }
+  function bindList(id, key, field) {
+    var el = $(id);
+    el.addEventListener("click", function (e) {
+      var act = e.target.getAttribute("data-act"); if (!act || act === "text") return;
+      var row = e.target.closest(".item"); var i = +row.getAttribute("data-i"); var arr = data[key];
+      if (act === "pick") return openPicker(arr[i].src, function (p) { arr[i].src = p; render(); });
+      if (act === "up" && i > 0) { var t = arr[i - 1]; arr[i - 1] = arr[i]; arr[i] = t; }
+      if (act === "down" && i < arr.length - 1) { var u = arr[i + 1]; arr[i + 1] = arr[i]; arr[i] = u; }
+      if (act === "del") {
+        if (key === "hero" && arr.length <= 1) return toast("첫 화면 사진은 최소 1장 있어야 해요", true);
+        arr.splice(i, 1);
+      }
+      render();
+    });
+    el.addEventListener("input", function (e) {
+      if (e.target.getAttribute("data-act") !== "text") return;
+      var i = +e.target.closest(".item").getAttribute("data-i"); data[key][i][field] = e.target.value; updateBar();
+    });
+  }
+
+  /* ---------- 사진 고르기 ---------- */
+  var pickCb = null, pickCurrent = null, pickMulti = false;
+  function openPicker(current, cb, multi) {
+    pickCb = cb; pickCurrent = current; pickMulti = !!multi;
+    $("pickerTitle").textContent = multi ? "추가할 사진 고르기" : "사진 고르기";
+    renderPicker(); $("picker").hidden = false; document.body.style.overflow = "hidden";
+  }
+  function closePicker() { $("picker").hidden = true; document.body.style.overflow = ""; pickCb = null; }
+  function renderPicker() {
+    var html = "";
+    FOLDERS.forEach(function (f) {
+      var files = library[f[0]] || [];
+      if (!files.length) return;
+      html += '<div class="folder">' + esc(f[1]) + " (" + files.length + ')</div><div class="grid">' + files.map(function (p) {
+        return '<button class="pick' + (p === pickCurrent ? " current" : "") + '" data-path="' + esc(p) + '"><img loading="lazy" src="' + esc(src(p)) + '" alt=""><span>' + esc(p.split("/").pop()) + "</span></button>";
+      }).join("") + "</div>";
+    });
+    $("pickerBody").innerHTML = html || '<p class="hint">사진 목록을 불러오지 못했어요.</p>';
+  }
+  $("pickerBody").addEventListener("click", function (e) {
+    var b = e.target.closest(".pick"); if (!b || !pickCb) return;
+    var cb = pickCb; closePicker(); cb(b.getAttribute("data-path"));
+  });
+  $("pickerClose").addEventListener("click", closePicker);
+  $("picker").addEventListener("click", function (e) { if (e.target === $("picker")) closePicker(); });
+
+  /* ---------- 사진 올리기 (가로 1600px JPG로 줄여서 저장) ---------- */
+  function resize(file) {
+    return new Promise(function (resolve, reject) {
+      var url = URL.createObjectURL(file), img = new Image();
+      img.onload = function () {
+        var max = 1600, w = img.naturalWidth, h = img.naturalHeight, k = Math.min(1, max / Math.max(w, h));
+        var c = document.createElement("canvas"); c.width = Math.round(w * k); c.height = Math.round(h * k);
+        c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+        URL.revokeObjectURL(url);
+        c.toBlob(function (blob) { blob ? resolve(blob) : reject(new Error("변환 실패")); }, "image/jpeg", 0.84);
+      };
+      img.onerror = function () { URL.revokeObjectURL(url); reject(new Error("이 사진 형식은 열 수 없어요 (" + file.name + ")")); };
+      img.src = url;
+    });
+  }
+  function blobToB64(blob) {
+    return new Promise(function (res) { var r = new FileReader(); r.onload = function () { res(String(r.result).split(",")[1]); }; r.readAsDataURL(blob); });
+  }
+  function stamp(n) {
+    var d = new Date(), z = function (x) { return ("0" + x).slice(-2); };
+    return d.getFullYear() + z(d.getMonth() + 1) + z(d.getDate()) + "-" + z(d.getHours()) + z(d.getMinutes()) + z(d.getSeconds()) + "-" + n;
+  }
+  $("fileInput").addEventListener("change", function (e) {
+    var files = Array.prototype.slice.call(e.target.files || []); e.target.value = "";
+    if (!files.length) return;
+    if (!token) { closePicker(); return toast("사진을 올리려면 위에서 저장 권한을 먼저 연결해 주세요", true); }
+    var cb = pickCb, multi = pickMulti; closePicker();
+    uploading = true; updateBar();
+    var done = [];
+    files.reduce(function (p, f, idx) {
+      return p.then(function () {
+        $("status").textContent = "사진 올리는 중… (" + (idx + 1) + "/" + files.length + ")";
+        return resize(f).then(function (blob) {
+          var path = "images/uploads/" + stamp(idx + 1) + ".jpg";
+          localPreview[path] = URL.createObjectURL(blob);
+          return blobToB64(blob).then(function (b64) {
+            return gh("PUT", path, { message: "관리 페이지: 사진 업로드", content: b64, branch: BRANCH });
+          }).then(function () {
+            (library["images/uploads"] = library["images/uploads"] || []).unshift(path); done.push(path);
+          });
+        });
+      });
+    }, Promise.resolve()).then(function () {
+      toast(done.length + "장 올렸어요");
+    }).catch(function (err) {
+      toast(err.status ? explain(err) : err.message, true);
+    }).then(function () {
+      uploading = false;
+      if (cb && done.length) { if (multi) done.forEach(function (p) { cb(p); }); else cb(done[0]); }
+      else updateBar();
+    });
+  });
+
+  /* ---------- 불러오기 / 저장 ---------- */
+  function parsePhotos(text) {
+    var i = text.indexOf("{", text.indexOf("window.PHOTOS")), j = text.lastIndexOf("}");
+    return JSON.parse(text.slice(i, j + 1));
+  }
+  function buildPhotos(d) {
+    return "/* 사진 설정 - 관리 페이지(admin.html)에서 저장하면 이 파일이 자동으로 바뀝니다.\n   직접 고칠 때는 따옴표 안의 파일명·설명만 바꾸세요. */\nwindow.PHOTOS = " + JSON.stringify(d, null, 2) + ";\n";
+  }
+  function loadLibrary() {
+    return Promise.all(FOLDERS.map(function (f) {
+      return gh("GET", f[0]).then(function (list) {
+        library[f[0]] = (list || []).filter(function (x) { return x.type === "file" && /\.(jpe?g|png|webp)$/i.test(x.name); })
+          .map(function (x) { return x.path; }).sort().reverse();
+      }).catch(function () { library[f[0]] = []; });
+    }));
+  }
+  function load() {
+    return gh("GET", "photos.js").then(function (f) {
+      if (!f) throw new Error("photos.js 를 찾지 못했어요");
+      sha = f.sha; data = parsePhotos(b64decode(f.content));
+      data.hero = data.hero || []; data.rooms = data.rooms || []; data.gallery = data.gallery || [];
+      savedJson = JSON.stringify(data); render();
+    }).then(loadLibrary).catch(function (e) {
+      $("status").textContent = "불러오지 못했어요";
+      toast(e.status === 403 ? "GitHub 조회 한도를 넘었어요. 저장 권한을 연결하면 해결됩니다." : (e.status ? explain(e) : e.message), true);
+    });
+  }
+  $("saveBtn").addEventListener("click", function () {
+    if (!isDirty() || !token) return;
+    var b = $("saveBtn"); b.disabled = true; $("status").textContent = "저장하는 중…";
+    gh("PUT", "photos.js", { message: "관리 페이지: 사진 설정 변경", content: b64encode(buildPhotos(data)), sha: sha, branch: BRANCH })
+      .then(function (r) {
+        sha = r.content.sha; savedJson = JSON.stringify(data); updateBar();
+        $("status").textContent = "저장했어요. 1~2분 뒤 홈페이지에 반영됩니다";
+        toast("저장했어요. 1~2분 뒤 홈페이지에 반영됩니다");
+      }).catch(function (e) { toast(explain(e), true); updateBar(); });
+  });
+
+  /* ---------- 이벤트 ---------- */
+  $("roomsList").addEventListener("click", function (e) {
+    var i = e.target.getAttribute("data-room"); if (i == null) return;
+    openPicker(data.rooms[+i].image, function (p) { data.rooms[+i].image = p; render(); });
+  });
+  bindList("galleryList", "gallery", "caption");
+  bindList("heroList", "hero", "alt");
+  $("galleryAdd").addEventListener("click", function () {
+    openPicker(null, function (p) { data.gallery.push({ src: p, caption: "" }); render(); }, true);
+  });
+  $("heroAdd").addEventListener("click", function () {
+    openPicker(null, function (p) { data.hero.push({ src: p, alt: "" }); render(); }, true);
+  });
+  $("tokenSave").addEventListener("click", function () {
+    var v = $("tokenInput").value.trim(); if (!v) return;
+    var prev = token; token = v;
+    gh("GET", "photos.js").then(function () {
+      return fetch("https://api.github.com/repos/" + OWNER + "/" + REPO, { headers: { Authorization: "Bearer " + v, Accept: "application/vnd.github+json" } })
+        .then(function (r) { return r.json(); });
+    }).then(function (repo) {
+      if (repo && repo.permissions && repo.permissions.push === false) throw Object.assign(new Error("no push"), { status: 403 });
+      store.set(v); $("tokenInput").value = ""; showTokenUI(); toast("연결했어요");
+      if (!data) load();
+    }).catch(function (e) { token = prev; toast(explain(e), true); });
+  });
+  $("tokenClear").addEventListener("click", function () { store.clear(); token = ""; showTokenUI(); });
+  window.addEventListener("beforeunload", function (e) { if (isDirty()) { e.preventDefault(); e.returnValue = ""; } });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !$("picker").hidden) closePicker(); });
+
+  showTokenUI();
+  load();
+})();
+</script>
+</body>
+</html>
