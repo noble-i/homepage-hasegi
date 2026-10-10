@@ -43,7 +43,7 @@
 
   /* ---------- 첫 화면 ---------- */
   var h = S.hero || {};
-  if ($("heroImg")) $("heroImg").src = h.image || "";
+  if ($("heroImg")) { $("heroImg").src = h.image || ""; if (h.alt) $("heroImg").alt = h.alt; }
   setText("heroEyebrow", h.eyebrow);
   setText("heroTitle", h.title);
   setText("heroSub", h.subtitle);
