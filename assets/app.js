@@ -58,7 +58,10 @@
   var a = S.audiences || {};
   setText("whoEyebrow", a.eyebrow); setText("whoTitle", a.title);
   setHtml("whoItems", (a.items || []).map(function (it) {
-    return '<div class="card"><div class="icon">' + (ICONS[it.icon] || ICONS.leaf) + "</div><h3>" + esc(it.title) + "</h3><p>" + esc(it.desc) + "</p></div>";
+    var top = it.image
+      ? '<img class="card-illust" src="' + esc(it.image) + '" alt="" loading="lazy">'
+      : '<div class="icon">' + (ICONS[it.icon] || ICONS.leaf) + "</div>";
+    return '<div class="card' + (it.image ? " has-illust" : "") + '">' + top + "<h3>" + esc(it.title) + "</h3><p>" + esc(it.desc) + "</p></div>";
   }).join(""));
 
   /* ---------- 병실 ---------- */
@@ -84,6 +87,7 @@
   }).join(""));
   setText("insNote", ins.note);
   setText("insPrepTitle", ins.prepTitle);
+  if (ins.image && $("insImg")) { $("insImg").src = ins.image; $("insImg").hidden = false; }
   setHtml("insPrep", (ins.prep || []).map(function (p) { return "<li>" + esc(p) + "</li>"; }).join(""));
 
   /* ---------- 건강보험 (켜져 있을 때만) ---------- */
@@ -111,7 +115,10 @@
   /* ---------- 절차 ---------- */
   var pr = S.process || {};
   setText("prEyebrow", pr.eyebrow); setText("prTitle", pr.title);
-  setHtml("prSteps", (pr.steps || []).map(function (s) { return "<li><h3>" + esc(s.title) + "</h3><p>" + esc(s.desc) + "</p></li>"; }).join(""));
+  setHtml("prSteps", (pr.steps || []).map(function (s) {
+    return "<li>" + (s.image ? '<img class="step-illust" src="' + esc(s.image) + '" alt="" loading="lazy">' : "") +
+      "<h3>" + esc(s.title) + "</h3><p>" + esc(s.desc) + "</p></li>";
+  }).join(""));
   setHtml("prNotes", (pr.notes || []).map(function (n) { return "<p>" + esc(n) + "</p>"; }).join(""));
 
   /* ---------- 사진 ---------- */
