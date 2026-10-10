@@ -165,7 +165,7 @@ window.SITE = {
     items: [
       { image: "images/ai/tr-acupuncture.jpg", title: "침 · 전침", desc: "막힌 경락을 소통시키고 근육의 과긴장을 풉니다." },
       { image: "images/ai/tr-pharmacopuncture.jpg", title: "약침", desc: "정제한 한약 성분을 통증 부위에 직접 주입해 염증과 통증을 가라앉힙니다." },
-      { image: "images/ai/tr-chuna.jpg", title: "추나 요법", desc: "원장이 직접 틀어진 척추와 골반을 바로잡아 신경 압박을 완화합니다." },
+      { image: "images/ai/tr-chuna-m.jpg", title: "추나 요법", desc: "원장이 직접 틀어진 척추와 골반을 바로잡아 신경 압박을 완화합니다." },
       { image: "images/ai/tr-herbal.jpg", title: "한약 치료", desc: "어혈을 풀고 손상된 근육·인대의 회복을 돕는 맞춤 한약을 처방합니다." },
       { image: "images/ai/tr-cupping-moxa.jpg", title: "부항 · 뜸 · 온열", desc: "어혈과 노폐물 배출을 돕고 깊은 근육층을 따뜻하게 이완합니다." },
       { image: "images/ai/tr-physio.jpg", title: "한방 물리치료", desc: "간섭파(ICT), 핫팩 등으로 근육을 부드럽게 풀어줍니다." }
