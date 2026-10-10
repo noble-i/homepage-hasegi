@@ -97,5 +97,68 @@
       672
     ],
     "prompt": "A smartphone showing a simple chat bubble, a folded insurance document with a check mark and a small car icon, a hand passing the document to another hand, worry-free and simple process"
+  },
+  "hero-mood-c": {
+    "task_id": "58533ffd-6a56-44ba-8a39-84a7d3c4ab33",
+    "source": "https://cdn-magnific.freepik.com/mystic_v1_upscale_58533ffd-6a56-44ba-8a39-84a7d3c4ab33_0.png?token=exp=1791636019~hmac=0f2620127a0f1f1983b99127c28fded5b0bfc08945e5fbcc761b00db7e5be44c&size=stable",
+    "size": [
+      1920,
+      1072
+    ],
+    "prompt": "Dried Korean herbal medicine ingredients such as ginseng root, jujube and cinnamon bark arranged in small cream ceramic bowls on light linen cloth, a cup of warm herbal tea with gentle steam, soft side window light, calm and clean, plenty of empty space on the left side"
+  },
+  "tr-acupuncture": {
+    "task_id": "43bbe244-b953-4dc1-b6e9-0aafc5b13539",
+    "source": "https://cdn-magnific.freepik.com/mystic_v1_generate_43bbe244-b953-4dc1-b6e9-0aafc5b13539.png?token=exp=1791636018~hmac=1b48231e680f310bf9ba85ad69ae6c90a189303fb3adf40897bc359dc9e05c2f&size=stable",
+    "size": [
+      900,
+      672
+    ],
+    "prompt": "A relaxed patient lying face down on a treatment bed covered with a towel, a few very fine acupuncture needles on the upper back with small thin wires for electro-acupuncture, calm and gentle, Korean medicine clinic"
+  },
+  "tr-pharmacopuncture": {
+    "task_id": "50843d14-5d86-4fa0-949b-724f28fd98cb",
+    "source": "https://cdn-magnific.freepik.com/mystic_v1_generate_50843d14-5d86-4fa0-949b-724f28fd98cb.png?token=exp=1791636021~hmac=6f3ac59d86ee4fe31e3d8024250afccbb18067f2d483559587e200c1e127464c&size=stable",
+    "size": [
+      900,
+      672
+    ],
+    "prompt": "A small glass vial of clear amber herbal extract next to dried medicinal herbs and a tiny fine syringe on a clean tray, herbal pharmacopuncture, gentle and clean"
+  },
+  "tr-chuna": {
+    "task_id": "20bbc65a-ae21-40f9-b8a1-8aff57d1c944",
+    "source": "https://cdn-magnific.freepik.com/mystic_v1_generate_20bbc65a-ae21-40f9-b8a1-8aff57d1c944.png?token=exp=1791636024~hmac=41758d23a936d2bb0e4e7b4176305246f3bce2c1aa573b721b9d9df22883b13c&size=stable",
+    "size": [
+      900,
+      672
+    ],
+    "prompt": "A practitioner gently placing both hands on the back of a patient lying on a padded treatment table, Korean chuna manual therapy for spine and pelvis alignment, careful and calm"
+  },
+  "tr-herbal": {
+    "task_id": "2c3ad8c0-efe1-433b-8233-85f0cfebda57",
+    "source": "https://cdn-magnific.freepik.com/mystic_v1_generate_2c3ad8c0-efe1-433b-8233-85f0cfebda57.png?token=exp=1791636031~hmac=b93922cf2d9f63e52bd0fb707f433435ac335aac03902aa4681527a3569b6f39&size=stable",
+    "size": [
+      900,
+      672
+    ],
+    "prompt": "A bowl of warm dark herbal decoction beside sealed herbal medicine pouches and dried herbs like ginseng root, licorice slices and jujubes on a wooden tray, Korean herbal medicine"
+  },
+  "tr-cupping-moxa": {
+    "task_id": "f5576335-a86b-43ce-9a40-fbbdfab0a0b0",
+    "source": "https://cdn-magnific.freepik.com/mystic_v1_generate_f5576335-a86b-43ce-9a40-fbbdfab0a0b0.png?token=exp=1791636031~hmac=43db43d799c6106d3124087ccca641f5ac71334a111df90772be6aff6d6cecbf&size=stable",
+    "size": [
+      900,
+      672
+    ],
+    "prompt": "Round glass cupping cups and a small moxibustion cone with a gentle curl of smoke on a folded towel, warm and soothing traditional therapy"
+  },
+  "tr-physio": {
+    "task_id": "0315ab1b-fa81-401e-b614-c060b1ac2b7a",
+    "source": "https://cdn-magnific.freepik.com/mystic_v1_generate_0315ab1b-fa81-401e-b614-c060b1ac2b7a.png?token=exp=1791636033~hmac=ab768fd7011040150a68b9ca3d0cc346c7acc89001dc30ab3f8cd9dfbcab7c19&size=stable",
+    "size": [
+      900,
+      672
+    ],
+    "prompt": "A patient resting comfortably on a treatment bed with a warm hot pack on the lower back and a small interferential electrotherapy device with soft pads beside the bed, relaxing physical therapy"
   }
 }
