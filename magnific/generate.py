@@ -44,6 +44,12 @@ def save_jpg(src_url, path, width):
     return im.size
 
 
+LOG = []
+_print = print
+def print(*a, **k):  # noqa: A001 - 결과 브랜치에 실행 기록(_last-run.log)도 남김
+    LOG.append(" ".join(str(x) for x in a)); _print(*a, **k)
+
+
 def main():
     if not KEY:
         print("MAGNIFIC_API_KEY 가 아직 없습니다. 저장소 Settings > Secrets and variables > Actions 에 등록한 뒤 다시 실행하세요.")
@@ -108,6 +114,8 @@ def main():
 
     json.dump(manifest, open(man_path, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     print(f"완료 {done}건, 실패 {failed}건")
+    with open(os.path.join(out_dir, "_last-run.log"), "w", encoding="utf-8") as f:
+        f.write(time.strftime("%Y-%m-%d %H:%M:%S UTC\n", time.gmtime()) + "\n".join(LOG) + "\n")
 
 
 if __name__ == "__main__":
