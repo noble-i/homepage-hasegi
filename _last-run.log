@@ -1,0 +1,32 @@
+2026-10-10 23:09:39 UTC
+[skip] hero-mood-a (이미 있음)
+[skip] hero-mood-b (이미 있음)
+[skip] who-accident (이미 있음)
+[skip] who-family (이미 있음)
+[skip] who-chronic (이미 있음)
+[skip] who-recovery (이미 있음)
+[skip] step-consult (이미 있음)
+[skip] step-documents (이미 있음)
+[skip] step-room (이미 있음)
+[skip] step-prepare (이미 있음)
+[skip] insurance-paperwork (이미 있음)
+[skip] hero-mood-c (이미 있음)
+[skip] tr-acupuncture (이미 있음)
+[skip] tr-pharmacopuncture (이미 있음)
+[skip] tr-chuna (이미 있음)
+[skip] tr-herbal (이미 있음)
+[skip] tr-cupping-moxa (이미 있음)
+[skip] tr-physio (이미 있음)
+[fail] char-giwa-flat 요청 실패: HTTP 403: {"message":"Your account has been disabled."}
+
+[fail] char-giwa-3d 요청 실패: HTTP 403: {"message":"Your account has been disabled."}
+
+[fail] char-butterfly-flat 요청 실패: HTTP 403: {"message":"Your account has been disabled."}
+
+[fail] char-butterfly-3d 요청 실패: HTTP 403: {"message":"Your account has been disabled."}
+
+[fail] char-duo-flat 요청 실패: HTTP 403: {"message":"Your account has been disabled."}
+
+[fail] char-duo-3d 요청 실패: HTTP 403: {"message":"Your account has been disabled."}
+
+완료 0건, 실패 0건
