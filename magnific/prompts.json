@@ -1,5 +1,5 @@
 {
-  "_실행": "2026-10-10 1차",
+  "_실행": "2026-10-10 2차 (치료 일러스트, 첫 화면 C)",
   "_안내": "jobs 에 항목을 추가하고 저장(푸시)하면 GitHub Actions 가 새 항목만 생성합니다. 다시 만들려면 해당 항목에 \"regenerate\": true 를 넣으세요. 실제 병실·치료 장면은 실제 사진을 쓰고, AI 이미지는 분위기·설명용으로만 씁니다.",
   "defaults": {
     "illust": {
@@ -104,6 +104,56 @@
       "aspect_ratio": "classic_4_3",
       "width": 900,
       "prompt": "A smartphone showing a simple chat bubble, a folded insurance document with a check mark and a small car icon, a hand passing the document to another hand, worry-free and simple process"
+    },
+    {
+      "id": "hero-mood-c",
+      "style": "photo",
+      "aspect_ratio": "widescreen_16_9",
+      "resolution": "2k",
+      "width": 1920,
+      "prompt": "Dried Korean herbal medicine ingredients such as ginseng root, jujube and cinnamon bark arranged in small cream ceramic bowls on light linen cloth, a cup of warm herbal tea with gentle steam, soft side window light, calm and clean, plenty of empty space on the left side"
+    },
+    {
+      "id": "tr-acupuncture",
+      "style": "illust",
+      "aspect_ratio": "classic_4_3",
+      "width": 900,
+      "prompt": "A relaxed patient lying face down on a treatment bed covered with a towel, a few very fine acupuncture needles on the upper back with small thin wires for electro-acupuncture, calm and gentle, Korean medicine clinic"
+    },
+    {
+      "id": "tr-pharmacopuncture",
+      "style": "illust",
+      "aspect_ratio": "classic_4_3",
+      "width": 900,
+      "prompt": "A small glass vial of clear amber herbal extract next to dried medicinal herbs and a tiny fine syringe on a clean tray, herbal pharmacopuncture, gentle and clean"
+    },
+    {
+      "id": "tr-chuna",
+      "style": "illust",
+      "aspect_ratio": "classic_4_3",
+      "width": 900,
+      "prompt": "A practitioner gently placing both hands on the back of a patient lying on a padded treatment table, Korean chuna manual therapy for spine and pelvis alignment, careful and calm"
+    },
+    {
+      "id": "tr-herbal",
+      "style": "illust",
+      "aspect_ratio": "classic_4_3",
+      "width": 900,
+      "prompt": "A bowl of warm dark herbal decoction beside sealed herbal medicine pouches and dried herbs like ginseng root, licorice slices and jujubes on a wooden tray, Korean herbal medicine"
+    },
+    {
+      "id": "tr-cupping-moxa",
+      "style": "illust",
+      "aspect_ratio": "classic_4_3",
+      "width": 900,
+      "prompt": "Round glass cupping cups and a small moxibustion cone with a gentle curl of smoke on a folded towel, warm and soothing traditional therapy"
+    },
+    {
+      "id": "tr-physio",
+      "style": "illust",
+      "aspect_ratio": "classic_4_3",
+      "width": 900,
+      "prompt": "A patient resting comfortably on a treatment bed with a warm hot pack on the lower back and a small interferential electrotherapy device with soft pads beside the bed, relaxing physical therapy"
     }
   ]
 }
