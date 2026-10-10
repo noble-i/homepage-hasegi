@@ -1,0 +1,56 @@
+name: Magnific 이미지 생성
+
+# magnific/prompts.json 이 바뀌면 실행. 결과는 ai-images 브랜치에 쌓이고,
+# 검토 후 사용할 이미지만 main 의 images/ 로 옮깁니다 (사이트에는 자동 반영되지 않음).
+on:
+  push:
+    branches: [main]
+    paths: ["magnific/prompts.json", "magnific/generate.py"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: magnific
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 결과 브랜치 준비
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin ai-images >/dev/null; then
+            git fetch origin ai-images
+            git worktree add out origin/ai-images
+            git -C out checkout -B ai-images
+          else
+            git worktree add --detach out
+            git -C out checkout --orphan ai-images
+            git -C out rm -rf --quiet .
+          fi
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install pillow
+
+      - name: 이미지 생성
+        env:
+          MAGNIFIC_API_KEY: ${{ secrets.MAGNIFIC_API_KEY }}
+        run: python magnific/generate.py magnific/prompts.json out
+
+      - name: 결과 저장
+        run: |
+          cd out
+          git add -A
+          if git diff --cached --quiet; then echo "새 이미지 없음"; exit 0; fi
+          git commit -m "Magnific 생성 이미지 (${GITHUB_SHA::7})"
+          git push origin ai-images

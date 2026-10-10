@@ -1,0 +1,45 @@
+{
+  "_안내": "jobs 에 항목을 추가하고 저장(푸시)하면 GitHub Actions 가 새 항목만 생성합니다. 다시 만들려면 해당 항목에 \"regenerate\": true 를 넣으세요. 실제 병실·치료 장면은 실제 사진을 쓰고, AI 이미지는 분위기·설명용으로만 씁니다.",
+  "defaults": {
+    "illust": {
+      "model": "fluid",
+      "suffix": "Soft editorial flat illustration, calm and warm, simple rounded shapes, subtle paper grain texture, generous empty space, muted palette of deep forest green, warm muted gold and cream, plain cream background. No text, no letters, no logos, no watermark.",
+      "colors": [
+        { "color": "#1f4d3d", "weight": 0.45 },
+        { "color": "#b8975a", "weight": 0.25 },
+        { "color": "#f7f4ee", "weight": 0.3 }
+      ]
+    },
+    "photo": {
+      "model": "realism",
+      "suffix": "Natural soft daylight, quiet and calm, shallow depth of field, editorial interior photography, warm neutral tones. No people, no text, no logos."
+    }
+  },
+  "jobs": [
+    { "id": "hero-mood-a", "style": "photo", "aspect_ratio": "widescreen_16_9", "resolution": "2k", "width": 1920,
+      "prompt": "Morning sunlight streaming through sheer white linen curtains onto a cream wall, soft leaf shadows, a ceramic cup of warm herbal tea and a small green plant on a light wooden side table in the foreground, peaceful recovery mood" },
+    { "id": "hero-mood-b", "style": "photo", "aspect_ratio": "widescreen_16_9", "resolution": "2k", "width": 1920,
+      "prompt": "Close-up of neatly folded white cotton towels and a soft knitted blanket on a light wooden shelf, gentle window light from the side, a sprig of green eucalyptus, clean and restful atmosphere" },
+
+    { "id": "who-accident", "style": "illust", "aspect_ratio": "classic_4_3", "width": 900,
+      "prompt": "A person sitting on a bench gently holding the back of their neck, a small parked car softly in the background, a calm tree, conveying recovery after a minor traffic accident, gentle and reassuring" },
+    { "id": "who-family", "style": "illust", "aspect_ratio": "classic_4_3", "width": 900,
+      "prompt": "A parent and a young child sitting together on a bed reading a picture book in a cozy warm room, window with soft light, family staying together" },
+    { "id": "who-chronic", "style": "illust", "aspect_ratio": "classic_4_3", "width": 900,
+      "prompt": "An adult doing a gentle stretch with hands on the lower back, standing tall and relaxed, a balanced stack of smooth stones beside them symbolizing a healthy spine" },
+    { "id": "who-recovery", "style": "illust", "aspect_ratio": "classic_4_3", "width": 900,
+      "prompt": "A woman resting comfortably under a soft blanket holding a warm cup of tea, a few green leaves floating around, peaceful postpartum and post-surgery recovery" },
+
+    { "id": "step-consult", "style": "illust", "aspect_ratio": "square_1_1", "width": 600,
+      "prompt": "A friendly doctor in a simple coat listening attentively to a seated patient across a small table, conversation, consultation" },
+    { "id": "step-documents", "style": "illust", "aspect_ratio": "square_1_1", "width": 600,
+      "prompt": "A tidy arrangement of a clipboard with paper, a small medicine bottle, an x-ray film sheet and a smartphone on a table, organized paperwork" },
+    { "id": "step-room", "style": "illust", "aspect_ratio": "square_1_1", "width": 600,
+      "prompt": "An open door leading into a bright simple room with a neatly made bed and a window, welcoming, a small room key tag" },
+    { "id": "step-prepare", "style": "illust", "aspect_ratio": "square_1_1", "width": 600,
+      "prompt": "A small overnight bag with a folded towel, a toothbrush cup, slippers and a water bottle neatly placed beside it, getting ready for a hospital stay" },
+
+    { "id": "insurance-paperwork", "style": "illust", "aspect_ratio": "classic_4_3", "width": 900,
+      "prompt": "A smartphone showing a simple chat bubble, a folded insurance document with a check mark and a small car icon, a hand passing the document to another hand, worry-free and simple process" }
+  ]
+}
