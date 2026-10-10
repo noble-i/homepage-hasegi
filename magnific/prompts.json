@@ -1,5 +1,5 @@
 {
-  "_실행": "2026-10-10 2차 (치료 일러스트, 첫 화면 C)",
+  "_실행": "2026-10-10 2차 재생성 (한약, 약침)",
   "_안내": "jobs 에 항목을 추가하고 저장(푸시)하면 GitHub Actions 가 새 항목만 생성합니다. 다시 만들려면 해당 항목에 \"regenerate\": true 를 넣으세요. 실제 병실·치료 장면은 실제 사진을 쓰고, AI 이미지는 분위기·설명용으로만 씁니다.",
   "defaults": {
     "illust": {
@@ -125,7 +125,8 @@
       "style": "illust",
       "aspect_ratio": "classic_4_3",
       "width": 900,
-      "prompt": "A small glass vial of clear amber herbal extract next to dried medicinal herbs and a tiny fine syringe on a clean tray, herbal pharmacopuncture, gentle and clean"
+      "prompt": "A small glass vial of clear amber herbal extract next to a few dried medicinal herb leaves and a tiny fine syringe on a simple round cream tray, herbal pharmacopuncture, minimal still life isolated on plain cream background, no scenery, no plants in background",
+      "regenerate": true
     },
     {
       "id": "tr-chuna",
@@ -139,7 +140,8 @@
       "style": "illust",
       "aspect_ratio": "classic_4_3",
       "width": 900,
-      "prompt": "A bowl of warm dark herbal decoction beside sealed herbal medicine pouches and dried herbs like ginseng root, licorice slices and jujubes on a wooden tray, Korean herbal medicine"
+      "prompt": "A bowl of warm dark herbal decoction beside two plain blank unlabeled kraft paper pouches tied with string, dried herbs like ginseng root, licorice slices and jujubes on a wooden tray, Korean herbal medicine, isolated on plain cream background",
+      "regenerate": true
     },
     {
       "id": "tr-cupping-moxa",
