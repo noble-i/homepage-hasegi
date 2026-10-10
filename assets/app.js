@@ -117,6 +117,33 @@
   /* ---------- 사진 ---------- */
   var g = S.gallery || {}, gItems = g.items || [];
   setText("gaEyebrow", g.eyebrow); setText("gaTitle", g.title);
+
+  /* 병실 영상: 소리 없이 자동 반복 재생, 화면에 보일 때만 재생 */
+  var gv = g.video, tour = $("gaVideo");
+  if (gv && gv.src && tour) {
+    tour.innerHTML =
+      '<div class="tour-media"><video id="tourVideo" muted loop playsinline controls preload="metadata"' +
+      (gv.poster ? ' poster="' + esc(gv.poster) + '"' : "") + ' aria-label="' + esc(gv.title || "입원실 영상") + '">' +
+      '<source src="' + esc(gv.src) + '" type="video/mp4"></video></div>' +
+      '<div class="tour-text">' + (gv.label ? '<span class="en">' + esc(gv.label) + "</span>" : "") +
+      "<h3>" + esc(gv.title) + "</h3><p>" + esc(gv.desc) + "</p>" +
+      '<ul class="features">' + (gv.points || []).map(function (p) { return "<li>" + esc(p) + "</li>"; }).join("") + "</ul></div>";
+    tour.hidden = false;
+    var vid = $("tourVideo");
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (vid && !reduce && "IntersectionObserver" in window) {
+      var userPaused = false;
+      vid.addEventListener("pause", function () { if (vid.dataset.auto !== "1") userPaused = true; vid.dataset.auto = ""; });
+      vid.addEventListener("play", function () { userPaused = false; });
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting && !userPaused) { var p = vid.play(); if (p && p.catch) p.catch(function () {}); }
+          else if (!e.isIntersecting && !vid.paused) { vid.dataset.auto = "1"; vid.pause(); }
+        });
+      }, { threshold: 0.4 }).observe(vid);
+    }
+  }
+
   setHtml("gaItems", gItems.map(function (it, i) {
     return '<button type="button" data-i="' + i + '" aria-label="' + esc(it.caption) + ' 크게 보기"><img src="' + esc(it.src) + '" alt="' + esc(it.caption) + '" loading="lazy"><figcaption>' + esc(it.caption) + "</figcaption></button>";
   }).join(""));

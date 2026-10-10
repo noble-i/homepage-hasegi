@@ -29,6 +29,12 @@
 1. 사진을 `images` 폴더에 넣습니다. 가로 1600px 정도, 파일 1장당 300KB 이하가 좋습니다.
 2. `content.js` 에서 해당 항목의 파일명을 바꿉니다. 예: `"images/room-single-01.jpg"` → `"images/새사진.jpg"`
 
+### 영상 바꾸기
+
+1. 영상을 `videos` 폴더에 넣습니다. 소리 없는 mp4(H.264), 20초 안팎, 5MB 이하가 좋습니다. 폰 원본은 용량이 커서(GitHub는 100MB 넘으면 올라가지 않음) 압축해서 넣으세요.
+2. `content.js` 의 `gallery.video` 에서 `src`(영상), `poster`(재생 전 보이는 사진), 문구를 바꿉니다.
+3. 영상을 빼려면 `video: null` 로 바꾸면 됩니다.
+
 ### 항목 추가·삭제
 
 - 목록(`[ ... ]`) 안의 `{ ... },` 한 묶음이 항목 하나입니다. 복사해서 붙이면 추가, 지우면 삭제입니다.
@@ -49,6 +55,7 @@ noble-i-inpatient/
 │  ├─ app.js         content.js 를 읽어 화면을 채우는 스크립트
 │  └─ favicon.svg    브라우저 탭 아이콘
 ├─ images/           사진
+├─ videos/           영상
 └─ README.md         이 안내문
 ```
 
